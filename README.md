@@ -17,4 +17,4 @@ R script `ecopart.R` (ECOlogical PARTitioning or Extinction and COlonization PAR
 - `d2` : Community matrix at time 2, where rows are sites, columns are species, and elements are species presence-abacence (01) or abundances.
 - `components` : Types of components into which Δβ is partitioned. Partial match of "two", "four", "six", or "sp".
 
-See Appendix 3 in Tatsumi et al. (2011) *Ecology Letters* for detail.
+See Appendix 3 in Tatsumi et al. (2021) *Ecology Letters* for detail.
