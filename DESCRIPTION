@@ -1,0 +1,10 @@
+Package: ecopart
+Title: Beta Diversity
+Version: 0.0.1
+Authors@R: 
+    person("Shinichi", "Tatsumi", , "community.ecologist@gmail.com", role = c("aut", "cre"))
+Description: Partitioning.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
