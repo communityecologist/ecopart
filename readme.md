@@ -19,7 +19,7 @@ remotes::install_github(“communityecologist/ecopart”)
 - `d2` : Community matrix at time 2, where rows are sites, columns are species, and elements are species presence-abacence (01) or abundances.
 - `components` : Types of components into which Δβ is partitioned. Partial match of "two", "four", "six", or "sp".
 
-See Appendix 3 in Tatsumi et al. (2011) *Ecology Letters* for detail.
+See Appendix 3 in Tatsumi et al. (2021) *Ecology Letters* for detail.
 
 ## Citations
 * [Tatsumi S, Iritani R, Cadotte MW (2021) Temporal changes in spatial variation: partitioning the extinction and colonisation components of beta diversity. *Ecology Letters* 24(5): 1063–1072.](https://onlinelibrary.wiley.com/doi/10.1111/ele.13720)
