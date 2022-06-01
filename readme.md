@@ -1,5 +1,5 @@
 # Partitioning the temporal changes in beta diversity
-R package `ecopart.R` ("ECOlogical PARTitioning" or "Extinction and COlonization PARTitioning") allows partitioning of the temporal changes in beta diversity into multiple components. The components represent biotic homogenization and differentiation (i.e., decrease and increase in beta diversity) that result from local extinctions and colonizations of species or the losses and gains in species abundances. The pacakge consists of two functions: `ecopart.pair()` and `ecopart.multi()`.
+R package `ecopart.R` ("Ecological COmmunity PARTitioning" or "Extinction and COlonization PARTitioning") allows partitioning of the temporal changes in beta diversity into multiple components. The components represent biotic homogenization and differentiation (i.e., decrease and increase in beta diversity) that result from local extinctions and colonizations of species or the losses and gains in species abundances. The pacakge consists of two functions: `ecopart.pair()` and `ecopart.multi()`.
 
 ## Installation
 ```{r}
