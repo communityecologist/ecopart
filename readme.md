@@ -8,19 +8,20 @@ remotes::install_github(“communityecologist/ecopart”)
 ```
 
 ## Usage
-###### ecopart.pair(d1, d2, index="ruzicka", components="two")
-- `d1` : Community matrix at time 1, where rows are sites, columns are species, and elements are species presence-abacence (01) or abundances.
-- `d2` : Community matrix at time 2, where rows are sites, columns are species, and elements are species presence-abacence (01) or abundances.
-- `index` : Type of beta diversity measure. Partial match of "ruzicka, "bray-curtis", or "harrison-baselga".
-- `components` : Types of components into which Δβ is partitioned. Partial match of "two", "four", "six", or "sp".
+###### ecopart.pair(d1, d2, index = "sorensen", components="four")
+- `d1` : A matrix or dataframe at time 1. Rows are a pair of sites (sites 1 and 2), columns are species, and elements are presence-absence (01) or abundances of species.
+- `d2` : A matrix or dataframe at time 2. Note that d1 and d2 must have exactly the same sites and species in the same order.
+- `index` : Type of dissimilarity measure. Options are "jaccard", "sorensen", "ruzicka", and "bray-curtis".
+- `components` : Types of components into which the total change in beta diversity is partitioned. Options are "two", "four", "six", and "sp".
 
-###### ecopart.multi(d1, d2, components="two")
-- `d1` : Community matrix at time 1, where rows are sites, columns are species, and elements are species presence-abacence (01) or abundances.
-- `d2` : Community matrix at time 2, where rows are sites, columns are species, and elements are species presence-abacence (01) or abundances.
-- `components` : Types of components into which Δβ is partitioned. Partial match of "two", "four", "six", or "sp".
+###### ecopart.multi(d1, d2, index = "whittaker", components="four")
+- `d1` : A matrix or dataframe at time 1. Rows are sites, columns are species, and elements are presence-absence (01) or abundances of species.
+- `d2` : A matrix or dataframe at time 2. Note that d1 and d2 must have exactly the same sites and species in the same order.
+- `index` : Type of dissimilarity measure. Options are "whittaker" and "baselga".
+- `components` : Types of components into which the total change in beta diversity is partitioned. Options are "two", "four", and "sp".
 
-See Appendix 3 in Tatsumi et al. (2021) *Ecology Letters* for detail.
+Run `?ecopart.pair()` and `?ecopart.multi()` for detail.
 
 ## Citations
 * [Tatsumi S, Iritani R, Cadotte MW (2021) Temporal changes in spatial variation: partitioning the extinction and colonisation components of beta diversity. *Ecology Letters* 24(5): 1063–1072.](https://onlinelibrary.wiley.com/doi/10.1111/ele.13720)
-* [Tatsumi S, Iritani R, Cadotte MW (2021) Partitioning the temporal changes in abundance-based beta diversity into loss and gain components. *bioRxiv*, 2021.05.28.446095.](https://www.biorxiv.org/content/10.1101/2021.05.28.446095v1)
+* Tatsumi S, Iritani R, Cadotte MW (2022) Partitioning the temporal changes in abundance-based beta diversity into loss and gain components. *Methods in Ecology and Evolution*, in press.
