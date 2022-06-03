@@ -43,7 +43,7 @@ ecopart.pair  <- function(d1, d2, index="sorensen", components="four"){
     d2[d2!=0] <- 1
   }
 
-  Mat	  <- rbind(d1, d2)
+  Mat   <- rbind(d1, d2)
   Ord   <- apply(Mat, 2, FUN="order")
   Srt   <- apply(Mat, 2, FUN="sort")
 
@@ -71,7 +71,7 @@ ecopart.pair  <- function(d1, d2, index="sorensen", components="four"){
 
   if(components=="two"){
 
-    Res	         <-	c(sum(DBeta[1:3,]), sum(DBeta[4:6,]))
+    Res          <-  c(sum(DBeta[1:3,]), sum(DBeta[4:6,]))
     if(index=="jaccard"|index=="sorensen"){
       names(Res) <-  c("Extinction component", "Colonization component")
     } else if(index=="ruzicka"|index=="bray-curtis"){
@@ -80,7 +80,7 @@ ecopart.pair  <- function(d1, d2, index="sorensen", components="four"){
 
   } else if(components=="four"){
 
-    Res	         <-	c(sum(DBeta[1,]), sum(DBeta[2:3,]), sum(DBeta[5:6,]), sum(DBeta[4,]))
+    Res          <-	 c(sum(DBeta[1,]), sum(DBeta[2:3,]), sum(DBeta[5:6,]), sum(DBeta[4,]))
     if(index=="jaccard"|index=="sorensen"){
       names(Res) <-  c("Extinction homogenization", "Extinction differentiation",
                        "Colonization homogenization", "Colonization differentiation")
