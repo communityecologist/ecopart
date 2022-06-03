@@ -54,7 +54,7 @@ ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
     Term.3  <-  (-Y   *H/N/Alpha1 + H/Gamma1)   * (Y>0 & Z==0)
     Term.4  <-  (Z-Y) *H/N/Alpha1               * (Y>Z & Z>0)
 
-    DBeta       <-	matrix(nrow=4, ncol=S)
+    DBeta       <-  matrix(nrow=4, ncol=S)
     DBeta[1,]   <-  ifelse(Term.1<0, Term.1, 0)
     DBeta[2,]   <-  ifelse(Term.1>0, Term.1, 0) + Term.2
     DBeta[3,]   <-  ifelse(Term.3<0, Term.3, 0) + Term.4
