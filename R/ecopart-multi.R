@@ -49,10 +49,10 @@ ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
     Beta1   <-  Gamma1/Alpha1
     H       <-  Beta1	/	((Alpha2-Alpha1)/Alpha1 + 1)
 
-    Term.1  <-  (X		*H/N/Alpha1 - H/Gamma1)   * (X>0 & Z==0)
-    Term.2  <-  (X-Z)	*H/N/Alpha1               * (X>Z & Z>0)
-    Term.3  <-  (-Y		*H/N/Alpha1 + H/Gamma1)   * (Y>0 & Z==0)
-    Term.4  <-  (Z-Y)	*H/N/Alpha1               * (Y>Z & Z>0)
+    Term.1  <-  (X    *H/N/Alpha1 - H/Gamma1)   * (X>0 & Z==0)
+    Term.2  <-  (X-Z) *H/N/Alpha1               * (X>Z & Z>0)
+    Term.3  <-  (-Y   *H/N/Alpha1 + H/Gamma1)   * (Y>0 & Z==0)
+    Term.4  <-  (Z-Y) *H/N/Alpha1               * (Y>Z & Z>0)
 
     DBeta			  <-	matrix(nrow=4, ncol=S)
     DBeta[1,]	  <-	ifelse(Term.1<0, Term.1, 0)
@@ -62,21 +62,21 @@ ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
 
     if(components=="two"){
 
-      Res				 <-	 c(sum(DBeta[1:2,]), sum(DBeta[3:4,]))
+      Res        <-  c(sum(DBeta[1:2,]), sum(DBeta[3:4,]))
       names(Res) <-  c("Extinction component", "Colonization component")
 
     } else if(components=="four"){
 
-      Res				 <-  rowSums(DBeta)
+      Res        <-  rowSums(DBeta)
       names(Res) <-  c("Extinction homogenization", "Extinction differentiation",
                        "Colonization homogenization", "Colonization differentiation")
 
     } else if(components=="sp"){
 
-      Res						<-	DBeta
+      Res           <-  DBeta
       rownames(Res) <-  c("Extinction homogenization", "Extinction differentiation",
                           "Colonization homogenization", "Colonization differentiation")
-      colnames(Res)	<-	colnames(d1)
+      colnames(Res) <-  colnames(d1)
 
     }
   # End of index=="whittaker"
