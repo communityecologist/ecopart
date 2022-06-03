@@ -1,10 +1,12 @@
 Package: ecopart
-Title: Beta Diversity
-Version: 0.0.1
+Title: Partitioning the Temporal Changes in Beta Diversity into Extinction and Colonization Components
+Version: 0.2.0
 Authors@R: 
     person("Shinichi", "Tatsumi", , "community.ecologist@gmail.com", role = c("aut", "cre"))
-Description: Partitioning.
+Description: An package for partitioning the temporal changes in beta diversity into multiple components that represent biotic homogenization and differentiation driven by local extinctions and colonizations of species or the losses and gains in species abundances.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Depends: R (>= 2.10)
+LazyData: true
