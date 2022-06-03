@@ -47,7 +47,7 @@ ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
     Alpha2  <-  mean(rowSums(d2))
     Gamma1  <-  sum(colSums(d1) > 0)
     Beta1   <-  Gamma1/Alpha1
-    H       <-  Beta1	/	((Alpha2-Alpha1)/Alpha1 + 1)
+    H       <-  Beta1/((Alpha2-Alpha1)/Alpha1 + 1)
 
     Term.1  <-  (X    *H/N/Alpha1 - H/Gamma1)   * (X>0 & Z==0)
     Term.2  <-  (X-Z) *H/N/Alpha1               * (X>Z & Z>0)
