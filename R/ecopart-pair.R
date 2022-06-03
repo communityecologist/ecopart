@@ -80,7 +80,7 @@ ecopart.pair  <- function(d1, d2, index="sorensen", components="four"){
 
   } else if(components=="four"){
 
-    Res          <-	 c(sum(DBeta[1,]), sum(DBeta[2:3,]), sum(DBeta[5:6,]), sum(DBeta[4,]))
+    Res          <-  c(sum(DBeta[1,]), sum(DBeta[2:3,]), sum(DBeta[5:6,]), sum(DBeta[4,]))
     if(index=="jaccard"|index=="sorensen"){
       names(Res) <-  c("Extinction homogenization", "Extinction differentiation",
                        "Colonization homogenization", "Colonization differentiation")
@@ -91,12 +91,12 @@ ecopart.pair  <- function(d1, d2, index="sorensen", components="four"){
 
   } else if(components=="six"){
 
-    Res          <- rowSums(DBeta)
-    names(Res)   <- c("DeltaBeta1", "DeltaBeta2", "DeltaBeta3", "DeltaBeta4", "DeltaBeta5", "DeltaBeta6")
+    Res          <-  rowSums(DBeta)
+    names(Res)   <-  c("DeltaBeta1", "DeltaBeta2", "DeltaBeta3", "DeltaBeta4", "DeltaBeta5", "DeltaBeta6")
 
   } else if(components=="sp"){
 
-    Res             <- sapply(1:ncol(DBeta), function(s) c(DBeta[1,s], sum(DBeta[2:3,s]), sum(DBeta[5:6,s]), DBeta[4,s]))
+    Res             <-  sapply(1:ncol(DBeta), function(s) c(DBeta[1,s], sum(DBeta[2:3,s]), sum(DBeta[5:6,s]), DBeta[4,s]))
     if(index=="jaccard"|index=="sorensen"){
       rownames(Res) <-  c("Extinction homogenization", "Extinction differentiation",
                           "Colonization homogenization", "Colonization differentiation")
