@@ -62,11 +62,11 @@ ecopart.pair  <- function(d1, d2, index="sorensen", components="four"){
   X   <- ifelse(index=="jaccard"|index=="ruzicka", C1*U1/(C1+U1)/(C2+U2), 2*C1*U1/(2*C1+U1)/(2*C2+U2))
 
   DBeta     <-  matrix(nrow=6, ncol=S)
-  DBeta[1,]	<- -X/U1				  * (LossL + HddnD)
-  DBeta[2,]	<-  X/C1				  *  LossE
+  DBeta[1,]	<- -X/U1          * (LossL + HddnD)
+  DBeta[2,]	<-  X/C1          *  LossE
   DBeta[3,]	<- (X/C1 + X/U1)  *  LossS
-  DBeta[4,]	<-  X/U1				  * (GainL + HddnD)
-  DBeta[5,]	<- -X/C1		 		  *  GainE
+  DBeta[4,]	<-  X/U1          * (GainL + HddnD)
+  DBeta[5,]	<- -X/C1          *  GainE
   DBeta[6,]	<- -(X/C1 + X/U1) *  GainS
 
   if(components=="two"){
