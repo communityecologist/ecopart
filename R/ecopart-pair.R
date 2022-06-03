@@ -31,12 +31,12 @@
 #' * Tatsumi S, Iritani R, Cadotte MW (2022) Partitioning the temporal changes in abundance-based beta diversity into loss and gain components. \emph{Methods in Ecology and Evolution}: in press
 #' @export
 
-ecopart.pair	<-	function(d1, d2, index="sorensen", components="four"){
+ecopart.pair  <- function(d1, d2, index="sorensen", components="four"){
 
   components <-	match.arg(components, c("two", "four", "six", "sp"))
-  index		   <-	match.arg(index, c("jaccard", "sorensen", "ruzicka", "bray-curtis"))
-  N				   <-	nrow(d1)
-  S			     <-	ncol(d1)
+  index      <-	match.arg(index, c("jaccard", "sorensen", "ruzicka", "bray-curtis"))
+  N          <-	nrow(d1)
+  S          <-	ncol(d1)
 
   if((index=="jaccard")|(index=="sorensen")){
     d1[d1!=0] <- 1
@@ -104,7 +104,7 @@ ecopart.pair	<-	function(d1, d2, index="sorensen", components="four"){
       rownames(Res) <-  c("Subtractive homogenization", "Subtractive differentiation",
                           "Additive homogenization", "Additive differentiation")
     }
-    colnames(Res) <-	colnames(d1)
+    colnames(Res)   <-  colnames(d1)
 
   }
 
