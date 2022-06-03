@@ -8,13 +8,17 @@ remotes::install_github("communityecologist/ecopart")
 ```
 
 ## Usage
-###### ecopart.pair(d1, d2, index = "sorensen", components="four")
+```{r}
+ecopart.pair(d1, d2, index = "sorensen", components="four")
+```
 - `d1` : A matrix or dataframe at time 1. Rows are a pair of sites (sites 1 and 2), columns are species, and elements are presence-absence (01) or abundances of species.
 - `d2` : A matrix or dataframe at time 2. Note that d1 and d2 must have exactly the same sites and species in the same order.
 - `index` : Type of dissimilarity measure. Options are "jaccard", "sorensen", "ruzicka", and "bray-curtis".
 - `components` : Types of components into which the total change in beta diversity is partitioned. Options are "two", "four", "six", and "sp".
 
-###### ecopart.multi(d1, d2, index = "whittaker", components="four")
+```{r}
+ecopart.multi(d1, d2, index = "whittaker", components="four")
+```
 - `d1` : A matrix or dataframe at time 1. Rows are sites, columns are species, and elements are presence-absence (01) or abundances of species.
 - `d2` : A matrix or dataframe at time 2. Note that d1 and d2 must have exactly the same sites and species in the same order.
 - `index` : Type of dissimilarity measure. Options are "whittaker" and "baselga".
