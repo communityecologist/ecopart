@@ -54,11 +54,11 @@ ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
     Term.3  <-  (-Y   *H/N/Alpha1 + H/Gamma1)   * (Y>0 & Z==0)
     Term.4  <-  (Z-Y) *H/N/Alpha1               * (Y>Z & Z>0)
 
-    DBeta			  <-	matrix(nrow=4, ncol=S)
-    DBeta[1,]	  <-	ifelse(Term.1<0, Term.1, 0)
-    DBeta[2,]		<-	ifelse(Term.1>0, Term.1, 0) + Term.2
-    DBeta[3,]		<-	ifelse(Term.3<0, Term.3, 0) + Term.4
-    DBeta[4,]		<-	ifelse(Term.3>0, Term.3, 0)
+    DBeta       <-	matrix(nrow=4, ncol=S)
+    DBeta[1,]   <-  ifelse(Term.1<0, Term.1, 0)
+    DBeta[2,]   <-  ifelse(Term.1>0, Term.1, 0) + Term.2
+    DBeta[3,]   <-  ifelse(Term.3<0, Term.3, 0) + Term.4
+    DBeta[4,]   <-  ifelse(Term.3>0, Term.3, 0)
 
     if(components=="two"){
 
@@ -147,20 +147,20 @@ ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
 
     if(components=="two"){
 
-      Res	        <-	c(sum(DBeta[1:2,]), sum(DBeta[3:4,]))
+      Res         <-  c(sum(DBeta[1:2,]), sum(DBeta[3:4,]))
       names(Res)  <-  c("Subtractive component", "Additive component")
 
     } else if(components=="four"){
 
-      Res			    <- 	rowSums(DBeta)
+      Res         <-  rowSums(DBeta)
       names(Res)  <-  c("Subtractive homogenization", "Subtractive differentiation",
                         "Additive homogenization", "Additive differentiation")
 
     } else if(components=="sp"){
-      Res					  <-	DBeta
+      Res           <-  DBeta
       rownames(Res) <-  c("Subtractive homogenization", "Subtractive differentiation",
                           "Additive homogenization", "Additive differentiation")
-      colnames(Res) <-	colnames(d1)
+      colnames(Res) <-  colnames(d1)
     }
 
   } # End of index=="baselga"
