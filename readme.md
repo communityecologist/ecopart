@@ -4,7 +4,7 @@ The R package `ecopart` ("Ecological COmmunity PARTitioning" or "Extinction and 
 ## Installation
 ```{r}
 library(remotes)
-remotes::install_github(“communityecologist/ecopart”)
+remotes::install_github("communityecologist/ecopart")
 ```
 
 ## Usage
