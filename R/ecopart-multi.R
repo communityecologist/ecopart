@@ -28,31 +28,31 @@
 #' * Whittaker RH (1960) Vegetation of the Siskiyou Mountains, Oregon and California. \emph{Ecological Monographs} 30(3): 279-338.
 #' @export
 
-ecopart.multi <-	function(d1, d2, index="whittaker", components="four"){
+ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
 
   index      <-  match.arg(index, c("whittaker", "baselga"))
   components <-  match.arg(components, c("two", "four", "sp"))
-  N		  	   <-  nrow(d1)
-  S			     <-  ncol(d1)
+  N          <-  nrow(d1)
+  S          <-  ncol(d1)
 
   if(index=="whittaker"){
 
     d1[d1!=0] <- 1
     d2[d2!=0] <- 1
 
-    X			  <-	colSums(d1)
-    Y			  <-	colSums(d2)
-    Z			  <-	sapply(1:S, function(s) sum(d1[,s]==1 & d2[,s]==1))
-    Alpha1	<-	mean(rowSums(d1))
-    Alpha2	<-	mean(rowSums(d2))
-    Gamma1	<-	sum(colSums(d1) > 0)
-    Beta1		<-	Gamma1/Alpha1
-    H				<-	Beta1	/	((Alpha2-Alpha1)/Alpha1 + 1)
+    X       <-  colSums(d1)
+    Y       <-  colSums(d2)
+    Z       <-  sapply(1:S, function(s) sum(d1[,s]==1 & d2[,s]==1))
+    Alpha1  <-  mean(rowSums(d1))
+    Alpha2  <-  mean(rowSums(d2))
+    Gamma1  <-  sum(colSums(d1) > 0)
+    Beta1   <-  Gamma1/Alpha1
+    H       <-  Beta1	/	((Alpha2-Alpha1)/Alpha1 + 1)
 
-    Term.1	<-	(X		*H/N/Alpha1 - H/Gamma1)		*	(X>0 & Z==0)
-    Term.2	<-	(X-Z)	*H/N/Alpha1								*	(X>Z & Z>0)
-    Term.3	<-	(-Y		*H/N/Alpha1 + H/Gamma1)		*	(Y>0 & Z==0)
-    Term.4	<-	(Z-Y)	*H/N/Alpha1								*	(Y>Z & Z>0)
+    Term.1  <-  (X		*H/N/Alpha1 - H/Gamma1)   * (X>0 & Z==0)
+    Term.2  <-  (X-Z)	*H/N/Alpha1               * (X>Z & Z>0)
+    Term.3  <-  (-Y		*H/N/Alpha1 + H/Gamma1)   * (Y>0 & Z==0)
+    Term.4  <-  (Z-Y)	*H/N/Alpha1               * (Y>Z & Z>0)
 
     DBeta			  <-	matrix(nrow=4, ncol=S)
     DBeta[1,]	  <-	ifelse(Term.1<0, Term.1, 0)
