@@ -43,8 +43,8 @@ ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
     X       <-  colSums(d1)
     Y       <-  colSums(d2)
     Z       <-  sapply(1:S, function(s) sum(d1[,s]==1 & d2[,s]==1))
-    Alpha1  <-  rowSums(d1) |> mean()
-    Alpha2  <-  rowSums(d2) |> mean()
+    Alpha1  <-  mean(rowSums(d1))
+    Alpha2  <-  mean(rowSums(d2))
     Gamma1  <-  sum(colSums(d1) > 0)
     Beta1   <-  Gamma1/Alpha1
     H       <-  Beta1/((Alpha2-Alpha1)/Alpha1 + 1)
@@ -85,7 +85,7 @@ ecopart.multi  <-  function(d1, d2, index="whittaker", components="four"){
 
     not.zero <-  function(x) sapply(1:length(x), function(i) all.equal(as.numeric(x[i]), 0)) != TRUE
     A        <-  sum(d1)
-    M        <-  apply(d1, 2, max) |> sum()
+    M        <-  sum(apply(d1, 2, max))
     Y        <-  N*M / (N-1) / sum(d2)
     DBeta    <-  matrix(nrow=4, ncol=S)
 
