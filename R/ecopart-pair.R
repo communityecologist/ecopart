@@ -55,10 +55,10 @@ ecopart.pair  <- function(d1, d2, index="sorensen", components="four"){
   GainS <- ifelse(colSums(Ord[1:2,])==3 | colSums(Ord[1:2,])!=7 & Ord[1,]<Ord[2,], Srt[2,]-Srt[1,], 0)
   HddnD <- ifelse(colSums(Ord[1:2,])==5,                                           Srt[3,]-Srt[2,], 0)
 
-  C1  <- apply(d1, 2, min) |> sum()
-  C2  <- apply(d2, 2, min) |> sum()
-  U1  <- as.matrix(d1) |> diff() |> abs() |> sum()
-  U2  <- as.matrix(d2) |> diff() |> abs() |> sum()
+  C1  <- sum(apply(d1, 2, min))
+  C2  <- sum(apply(d2, 2, min))
+  U1  <- sum(abs(diff(as.matrix(d1))))
+  U2  <- sum(abs(diff(as.matrix(d2))))
   X   <- ifelse(index=="jaccard"|index=="ruzicka", C1*U1/(C1+U1)/(C2+U2), 2*C1*U1/(2*C1+U1)/(2*C2+U2))
 
   DBeta     <-  matrix(nrow=6, ncol=S)
